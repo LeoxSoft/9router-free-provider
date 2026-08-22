@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Dahl Global Utility for 9Router configuration and backup management">
+  <title>Dahl Global Utility</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Dahl Global Utility">
+        <span class="brand-mark">D</span>
+        <span class="brand-name">Dahl Global Utility</span>
+      </a>
+
+      <div class="theme-switcher" aria-label="Theme selection">
+        <button class="theme-button" data-theme="system" type="button">System</button>
+        <button class="theme-button" data-theme="light" type="button">Light</button>
+        <button class="theme-button" data-theme="dark" type="button">Dark</button>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="hero-content">
+        <span class="eyebrow">9Router Toolkit</span>
+        <h1>Build your Dahl Global setup.</h1>
+        <p>
+          Generate Dahl Global API key configurations or prepare a complete
+          9Router backup directly in your browser.
+        </p>
+      </div>
+    </section>
+
+    <section class="workflow-grid">
+      <article class="workflow-card workflow-card-featured">
+        <div class="workflow-card-top">
+          <span class="recommended-badge">Recommended</span>
+        </div>
+
+        <div class="workflow-icon" aria-hidden="true">↗</div>
+
+        <h2>With Backup</h2>
+
+        <p>
+          Import your existing 9Router backup and generate a new configured
+          backup with Dahl Global connections, models and optional combo setup.
+        </p>
+
+        <button class="primary-button workflow-button" id="open-with-backup" type="button">
+          Open With Backup
+          <span>→</span>
+        </button>
+      </article>
+
+      <article class="workflow-card">
+        <div class="workflow-card-top">
+          <span class="workflow-label">Standalone</span>
+        </div>
+
+        <div class="workflow-icon" aria-hidden="true">+</div>
+
+        <h2>Without Backup</h2>
+
+        <p>
+          Generate a clean list of Dahl Global API keys without modifying an
+          existing 9Router backup.
+        </p>
+
+        <button class="secondary-button workflow-button" id="open-without-backup" type="button">
+          Open Without Backup
+          <span>→</span>
+        </button>
+      </article>
+    </section>
+
+    <section class="workspace-section hidden" id="without-backup-section">
+      <div class="workspace-card">
+        <div class="workspace-header">
+          <div>
+            <span class="section-label">WITHOUT BACKUP</span>
+            <h2>Generate API Keys</h2>
+            <p>
+              Choose the number of Dahl Global API keys and generate your list
+              locally.
+            </p>
+          </div>
+
+          <button class="icon-button close-workspace" data-close="without-backup-section" type="button" aria-label="Close">
+            ×
+          </button>
+        </div>
+
+        <div class="generator-layout">
+          <div class="generator-main">
+            <div class="field-group">
+              <label for="key-count">Number of Dahl Global API Keys</label>
+              <div class="input-action-row">
+                <input
+                  id="key-count"
+                  class="number-input"
+                  type="number"
+                  min="1"
+                  max="1000"
+                  value="10"
+                  inputmode="numeric"
+                >
+                <button class="primary-button generate-button" id="generate-keys" type="button">
+                  Generate
+                </button>
+              </div>
+            </div>
+
+            <div class="generation-result hidden" id="key-generation-result">
+              <div class="result-header">
+                <div>
+                  <span class="section-label">GENERATION</span>
+                  <h3 id="key-generation-title">Generating...</h3>
+                </div>
+                <span class="result-status" id="key-generation-status">Preparing</span>
+              </div>
+
+              <div class="progress-track">
+                <div class="progress-bar" id="key-progress-bar"></div>
+              </div>
+
+              <p class="status-text" id="key-status-text">
+                Preparing key generation...
+              </p>
+
+              <button class="secondary-button hidden" id="download-keys" type="button">
+                Download API Keys TXT
+              </button>
+            </div>
+          </div>
+
+          <aside class="configuration-panel">
+            <div class="configuration-item">
+              <span class="configuration-label">Provider</span>
+              <strong>Dahl Global</strong>
+            </div>
+
+            <div class="configuration-item">
+              <span class="configuration-label">Provider Type</span>
+              <strong>OpenAI Compatible</strong>
+            </div>
+
+            <div class="configuration-item">
+              <span class="configuration-label">API Type</span>
+              <strong>chat</strong>
+            </div>
+
+            <div class="configuration-item">
+              <span class="configuration-label">Base URL</span>
+              <div class="copy-field">
+                <code>https://inference.dahl.global/v1</code>
+                <button
+                  class="copy-button"
+                  type="button"
+                  data-copy="https://inference.dahl.global/v1"
+                >
+                  Copy
+                </button>
+              </div>
+            </div>
+
+            <div class="configuration-item">
+              <span class="configuration-label">Prefix</span>
+              <strong>1</strong>
+            </div>
+
+            <div class="configuration-item">
+              <span class="configuration-label">Priority</span>
+              <strong>1</strong>
+            </div>
+          </aside>
+        </div>
+
+        <div class="instructions-panel">
+          <div class="instructions-header">
+            <span class="section-label">9ROUTER SETUP</span>
+            <h3>Add Dahl Global</h3>
+          </div>
+
+          <ol class="instructions-list">
+            <li>Open 9Router.</li>
+            <li>Open <strong>Providers</strong>.</li>
+            <li>Select <strong>Add Provider</strong>.</li>
+            <li>Select <strong>OpenAI Compatible</strong>.</li>
+            <li>Set the provider name to <strong>Dahl Global</strong>.</li>
+            <li>Set the Base URL to <code>https://inference.dahl.global/v1</code>.</li>
+            <li>Set the prefix to <strong>1</strong>.</li>
+            <li>Add each generated API key as a separate connection.</li>
+            <li>Name the connections sequentially as <strong>dahl1</strong>, <strong>dahl2</strong>, <strong>dahl3</strong> and so on.</li>
+            <li>Keep every connection at <strong>Priority 1</strong>.</li>
+            <li>Save the provider and test the connections.</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="workspace-section hidden" id="with-backup-section">
+      <div class="workspace-card">
+        <div class="workspace-header">
+          <div>
+            <span class="section-label">WITH BACKUP</span>
+            <h2>Prepare 9Router Backup</h2>
+            <p>
+              Upload an existing 9Router JSON backup and prepare a new local
+              backup with your Dahl Global configuration.
+            </p>
+          </div>
+
+          <button class="icon-button close-workspace" data-close="with-backup-section" type="button" aria-label="Close">
+            ×
+          </button>
+        </div>
+
+        <div class="backup-upload-area">
+          <div class="upload-icon" aria-hidden="true">↑</div>
+          <h3>Upload 9Router Backup</h3>
+          <p>
+            Select your JSON backup. The file is processed locally inside this
+            browser.
+          </p>
+
+          <label class="file-input-button" for="backup-file">
+            Choose JSON Backup
+          </label>
+
+          <input
+            id="backup-file"
+            class="file-input"
+            type="file"
+            accept=".json,application/json"
+          >
+
+          <div class="selected-file hidden" id="selected-backup-file">
+            <span class="file-name" id="selected-file-name"></span>
+            <button class="remove-file" id="remove-backup-file" type="button">
+              Remove
+            </button>
+          </div>
+        </div>
+
+        <div class="backup-options">
+          <div class="field-group">
+            <label for="backup-key-count">Number of Dahl Global API Keys</label>
+            <input
+              id="backup-key-count"
+              class="number-input"
+              type="number"
+              min="1"
+              max="1000"
+              value="10"
+              inputmode="numeric"
+            >
+          </div>
+
+          <label class="option-card">
+            <input id="add-models" type="checkbox" checked>
+            <span class="option-content">
+              <strong>Add Dahl Global Models</strong>
+              <small>Add the supported Dahl Global model entries to the backup.</small>
+            </span>
+          </label>
+
+          <label class="option-card">
+            <input id="add-combo" type="checkbox" checked>
+            <span class="option-content">
+              <strong>Create Free 9Router Combo</strong>
+              <small>Create a combo containing the selected Dahl Global models.</small>
+            </span>
+          </label>
+        </div>
+
+        <div class="backup-configuration">
+          <div class="configuration-item">
+            <span class="configuration-label">Provider</span>
+            <strong>Dahl Global</strong>
+          </div>
+
+          <div class="configuration-item">
+            <span class="configuration-label">Provider Type</span>
+            <strong>OpenAI Compatible</strong>
+          </div>
+
+          <div class="configuration-item">
+            <span class="configuration-label">Base URL</span>
+            <div class="copy-field">
+              <code>https://inference.dahl.global/v1</code>
+              <button
+                class="copy-button"
+                type="button"
+                data-copy="https://inference.dahl.global/v1"
+              >
+                Copy
+              </button>
+            </div>
+          </div>
+
+          <div class="configuration-item">
+            <span class="configuration-label">Prefix</span>
+            <strong>1</strong>
+          </div>
+
+          <div class="configuration-item">
+            <span class="configuration-label">Priority</span>
+            <strong>1</strong>
+          </div>
+        </div>
+
+        <button class="primary-button full-button" id="prepare-backup" type="button">
+          Prepare Backup
+        </button>
+
+        <div class="backup-result hidden" id="backup-result">
+          <div class="result-header">
+            <div>
+              <span class="section-label">BACKUP PROCESS</span>
+              <h3>Preparing your backup</h3>
+            </div>
+            <span class="result-status" id="backup-result-status">Waiting</span>
+          </div>
+
+          <div class="progress-track">
+            <div class="progress-bar" id="backup-progress-bar"></div>
+          </div>
+
+          <p class="status-text" id="backup-status-text">
+            Waiting for a backup file.
+          </p>
+
+          <button class="secondary-button hidden" id="download-backup" type="button">
+            Download Prepared Backup
+          </button>
+        </div>
+
+        <div class="instructions-panel">
+          <div class="instructions-header">
+            <span class="section-label">IMPORT</span>
+            <h3>Import the Prepared Backup</h3>
+          </div>
+
+          <ol class="instructions-list">
+            <li>Open 9Router.</li>
+            <li>Open the backup or restore section.</li>
+            <li>Select the option to import a backup.</li>
+            <li>Choose the prepared JSON backup file.</li>
+            <li>Complete the import process.</li>
+            <li>Open <strong>Providers</strong> and verify <strong>Dahl Global</strong>.</li>
+            <li>Verify the generated <strong>dahl1</strong>, <strong>dahl2</strong>, <strong>dahl3</strong> and additional connections.</li>
+            <li>Verify the Dahl Global models.</li>
+            <li>If enabled, verify the <strong>Free 9Router</strong> combo.</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="models-section">
+      <div class="section-heading">
+        <div>
+          <span class="section-label">SUPPORTED MODELS</span>
+          <h2>Dahl Global Models</h2>
+        </div>
+        <p>Models included by the backup workflow.</p>
+      </div>
+
+      <div class="model-grid">
+        <div class="model-card">
+          <span>DeepSeek</span>
+          <code>deepseek-ai/DeepSeek-V4-Flash-0731</code>
+        </div>
+
+        <div class="model-card">
+          <span>Kimi</span>
+          <code>moonshotai/Kimi-K2.6</code>
+        </div>
+
+        <div class="model-card">
+          <span>MiniMax</span>
+          <code>MiniMaxAI/MiniMax-M2.7</code>
+        </div>
+
+        <div class="model-card">
+          <span>GLM</span>
+          <code>zai-org/GLM-5.2-FP8</code>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div>
+        <strong>Dahl Global Utility</strong>
+        <span>Browser-first 9Router toolkit</span>
+      </div>
+    </footer>
+  </main>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
