@@ -64,22 +64,14 @@ function closeSection(section) {
   section.classList.add("hidden");
 }
 
-function createRandomString(length) {
-  const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_-";
-  const values = new Uint32Array(length);
-  crypto.getRandomValues(values);
+async function createApiKey() {
+  const token = await fetch("https://inference.dahl.global/tokens", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: "{}"
+  }).then(r => r.json()).then(d => d.token ?? d.api_key ?? d.key ?? "");
 
-  let result = "";
-
-  for (let i = 0; i < length; i += 1) {
-    result += alphabet[values[i] % alphabet.length];
-  }
-
-  return result;
-}
-
-function createApiKey() {
-  return `dahl_${createRandomString(40)}`;
+  return token;
 }
 
 function sleep(milliseconds) {
@@ -100,7 +92,7 @@ async function generateKeys() {
   state.generatedKeys = [];
 
   for (let index = 0; index < count; index += 1) {
-    state.generatedKeys.push(createApiKey());
+    state.generatedKeys.push(await createApiKey());
 
     const progress = Math.round(((index + 1) / count) * 100);
 
@@ -345,7 +337,7 @@ async function prepareBackup() {
     const generatedKeys = [];
 
     for (let index = 1; index <= count; index += 1) {
-      generatedKeys.push(createApiKey());
+      generatedKeys.push(await createApiKey());
 
       elements.backupProgressBar.style.width =
         `${40 + Math.round((index / count) * 35)}%`;
