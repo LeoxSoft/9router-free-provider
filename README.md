@@ -1,9 +1,6 @@
 # 🚀 9Router Free Provider
 
-## 🎁 Free Kimi2.6 🪄
-## 🎁 DeepSeek-V4-Flash 🐋
-## 🎁 GLM-5.2 🧠
-## 🎁 MiniMax-M2.7 🥳
+## 🎁 Free Kimi2.6 🪄 DeepSeek-V4-Flash 🐋 GLM-5.2 🧠 MiniMax-M2.7 🥳
 
 ## Quick start
 
