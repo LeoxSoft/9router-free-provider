@@ -1,21 +1,18 @@
 # 🚀 9Router Free Provider
 
----
-
 ## Quick start
 
-<a href="https://LeoxSoft.github.io/9router-free-provider/" style="display:inline-block;background:#00C853;color:#ffffff;font-size:3rem;padding:25px 70px;border-radius:15px;text-decoration:none;font-weight:bold;box-shadow:0 8px 16px rgba(0,0,0,0.2);border:3px solid #ffffff;">🚀 GET START</a>
+[![Get Start](https://img.shields.io/badge/🚀_GET_START-00C853?style=for-the-badge&logo=googlechrome&logoColor=white)](https://LeoxSoft.github.io/9router-free-provider/)
+
+Click the green button above.
 
 ## Donation
 
-If you find this useful, feel free to support with a small donation:
+**USDT (BEP20)**
+```0x8AE29c523584969a102FDEa03717f7A06DDAbb7a```
 
-**USDT (BEP20)**  
-`0x8AE29c523584969a102FDEa03717f7A06DDAbb7a`
-
-**USDT (TON)**  
-`UQBmI7jh0PAXIDPLjBVgIBKonB5Dk9YsDMLl0_H0e-ZQvSvt`
+**USDT (TON)**
+```UQBmI7jh0PAXIDPLjBVgIBKonB5Dk9YsDMLl0_H0e-ZQvSvt```
 
 ---
-
 Made with ❤️ by LeoxSoft
