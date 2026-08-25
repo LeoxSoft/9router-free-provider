@@ -7,12 +7,14 @@
 ## Donation
 
 **USDT (BEP20)**
-```text
-0x8AE29c523584969a102FDEa03717f7A06DDAbb7a```
+```BEP20
+0x8AE29c523584969a102FDEa03717f7A06DDAbb7a
+```
 
 **USDT (TON)**
-```text
-UQBmI7jh0PAXIDPLjBVgIBKonB5Dk9YsDMLl0_H0e-ZQvSvt```
+```TON
+UQBmI7jh0PAXIDPLjBVgIBKonB5Dk9YsDMLl0_H0e-ZQvSvt
+```
 
 ---
 Made with ❤️ by LeoxSoft
