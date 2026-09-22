@@ -38,9 +38,9 @@ const elements = {
 
 const models = [
   "deepseek-ai/DeepSeek-V4-Flash-0731",
-  "moonshotai/Kimi-K2.6",
+  "Qwen/Qwen3.8-Flash-Next",
   "MiniMaxAI/MiniMax-M2.7",
-  "zai-org/GLM-5.2-FP8"
+  "zai-org/GLM-5.3-Flash"
 ];
 
 function applyTheme(theme) {
